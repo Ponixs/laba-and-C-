@@ -20,10 +20,18 @@ namespace Project_2
 
         private void startButton_Click(object sender, EventArgs e)
         {
-			label2.Text = "Program №1:\n";
-			number1(label2, textBox1);
-			label3.Text = "Program №2:\n";
-			number2(label3);
+            try
+            {
+				label2.Text = "Program №1:\n";
+				number1(label2, textBox1);
+				label3.Text = "Program №2:\n";
+				number2(label3);
+			}
+            catch (Exception error)
+            {
+				label2.Text = error.Message + '\n';
+				label2.Text += error.StackTrace;
+			}
 		}
 
 		static int number1(Label label, TextBox text)
@@ -33,7 +41,7 @@ namespace Project_2
 			int intValue;
 			bool succes = int.TryParse(userString, out intValue);
 
-			if ((intValue > 50) || (intValue < 0) || !succes) return -1;
+			if ((intValue > 50) || (intValue < 0) || !succes) throw new Exception("Введенные данные не соответствуют требованиям"); 
 			int count = 1;
 			for (int i = 1; i < max; i++)
 			{
