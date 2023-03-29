@@ -26,6 +26,7 @@ namespace Windows_Forms
 
         public Form1()
         {
+
             InitializeComponent();
 
             infoLabel = new ToolStripLabel();
@@ -40,6 +41,8 @@ namespace Windows_Forms
             timer = new Timer() { Interval = 1000 };
             timer.Tick += timer_tick;
             timer.Start();
+           
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,17 +91,31 @@ namespace Windows_Forms
 
             string fileText = System.IO.File.ReadAllText(fileName);
             textBox1.Text = fileText;
-            MessageBox.Show("Файл сохранен!");
+            MessageBox.Show("Файл открыт!");
         }
 
         private void лР2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Form2 newForm = new Form2();
+                newForm.Show();
+            }
+            catch (Exception error)
+            {
+                textBox1.Text = error.Message + '\n';
+                textBox1.Text += error.StackTrace;
+            }
         }
 
         private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
+        }
+
+        private void закрытьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
