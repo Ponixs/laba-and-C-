@@ -123,5 +123,11 @@ namespace Windows_Forms
 
             }
         }
+
+        private void дополнительноеЗаданиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 newForm = new Form4();
+            newForm.ShowDialog();
+        }
     }
 }
