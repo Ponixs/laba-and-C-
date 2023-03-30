@@ -98,12 +98,14 @@ namespace Windows_Forms
         {
             try
             {
-                Form2 newForm = new Form2();
+                Form2 newForm = new Form2(this);
                 newForm.Show();
             }
             catch (Exception error)
             {
-                textBox1.Text = error.Message + '\n';
+                textBox1.Text = error.Message + "\r\n";
+                textBox1.Text = error.InnerException.ToString() + "\r\n";
+                textBox1.Text = error.Source + "\r\n";
                 textBox1.Text += error.StackTrace;
             }
         }

@@ -1,17 +1,26 @@
-.text
-.globl mult
-mult:
-        push    rbp
-        mov     rbp, rsp
-        mov     eax, edi
-        mov     edx, esi
-        mov     DWORD PTR [rbp-4], 1
-        jmp     .L2
-.L3:
-        add     eax, eax
-        sal     DWORD PTR [rbp-4]
-.L2:
-        cmp     DWORD PTR [rbp-4], edx
-        jl      .L3
-        pop     rbp
-        ret
+Title 
+.686 
+.MODEL FLAT, C 
+.STACK 256 ; 
+.DATA ; 
+; -----------Local data------------------------------
+; a_asm dw 2 ; Описание локальной переменной типа DefineWord 16 бит (2 байта)
+.CODE ; Сегмент кода программы
+;-----------External usage-------------------------
+; Возвращаемое значение процедуры во внешнее приложение
+EXTRN a_asm : WORD
+EXTRN b_asm : WORD
+;-----------Function definitions-------------------
+; Описание экспортируемой функции
+PUBLIC C mult ;
+mult PROC far ; Заголовок экспортируемой функции
+; far - возможность обращения к процедуре из другого
+участка кода проекта
+mov ax, a_asm ; Помещаем значение переменной a_asm в регистрax
+shl ax, 1 ; Сложение значений двух регистров и
+сохранение результатов в регистре ax
+mov a_asm, ax ; Содержимое регистра ax перемещаем во внешнююпеременную c_asm
+; Оператор Return from procedure обеспечивает возврат управлениявызывающей программе
+retn
+Proc_Add ENDP
+END

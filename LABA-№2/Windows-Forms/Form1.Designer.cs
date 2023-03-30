@@ -221,7 +221,7 @@
         private System.Windows.Forms.ToolStripSeparator закрытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem лР1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лР2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лР3ToolStripMenuItem;
