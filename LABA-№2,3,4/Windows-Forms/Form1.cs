@@ -26,6 +26,7 @@ namespace Windows_Forms
 
         public Form1()
         {
+            Program.f1 = this;
 
             InitializeComponent();
 
@@ -118,6 +119,43 @@ namespace Windows_Forms
         private void закрытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void лР3ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void редакторГрафИзобрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                paint newForm = new paint(this);
+                newForm.ShowDialog();
+            }
+            catch (Exception error)
+            {
+                textBox1.Text = error.Message + "\r\n";
+                textBox1.Text = error.InnerException.ToString() + "\r\n";
+                textBox1.Text = error.Source + "\r\n";
+                textBox1.Text += error.StackTrace;
+            }
+}
+
+        private void фракталыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                fractal newForm = new fractal(this);
+                newForm.ShowDialog();
+            }
+            catch (Exception error)
+            {
+                textBox1.Text = error.Message + "\r\n";
+                textBox1.Text = error.InnerException.ToString() + "\r\n";
+                textBox1.Text = error.Source + "\r\n";
+                textBox1.Text += error.StackTrace;
+            }
         }
     }
 }

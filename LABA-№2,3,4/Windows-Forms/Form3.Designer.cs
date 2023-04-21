@@ -38,17 +38,18 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 56);
+            this.textBox1.Size = new System.Drawing.Size(445, 284);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "C";
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 33);
+            this.button1.Location = new System.Drawing.Point(0, 261);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 23);
+            this.button1.Size = new System.Drawing.Size(445, 23);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Выбрать";
+            this.button1.Text = "C";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -56,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(221, 56);
+            this.ClientSize = new System.Drawing.Size(445, 284);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form3";

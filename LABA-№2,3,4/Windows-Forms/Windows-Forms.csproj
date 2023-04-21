@@ -70,6 +70,24 @@
     <Compile Include="Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="fractal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fractal.Designer.cs">
+      <DependentUpon>fractal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="makePanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="makePanel.Designer.cs">
+      <DependentUpon>makePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paint.Designer.cs">
+      <DependentUpon>paint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -83,6 +101,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fractal.resx">
+      <DependentUpon>fractal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="makePanel.resx">
+      <DependentUpon>makePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paint.resx">
+      <DependentUpon>paint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

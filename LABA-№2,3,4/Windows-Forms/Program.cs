@@ -6,8 +6,10 @@ using System.Windows.Forms;
 
 namespace Windows_Forms
 {
-    static class Program
+    internal static class Program
     {
+        public static Form1 f1;
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
