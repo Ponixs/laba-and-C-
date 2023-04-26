@@ -63,14 +63,7 @@ namespace Windows_Forms
         private void button1_Click(object sender, EventArgs e)
         {
             g = pictureBox1.CreateGraphics();
-            /*g.DrawLine(myPen, 0, pictureBox1.Height / 2,
-            pictureBox1.Width, pictureBox1.Height / 2);
 
-            g.DrawLine(myPen, pictureBox1.Width / 2, 0,
-            pictureBox1.Width / 2, pictureBox1.Height);
-            */
-
-            
             switch (comboBox2.SelectedIndex)
             {
                 case 0:
@@ -81,23 +74,7 @@ namespace Windows_Forms
                     break;
             }
 
-            //int Interval = pictureBox1.Width;
-            //double xmin = 0, xmax = 2 * 3.14, ymin = 0, ymax = 2;
-            //float xstep = (float)((xmax - xmin) / Interval);
-
-            //float kx = (float)(pictureBox1.Width / xmax);
-            //float ky = (float)(pictureBox1.Height / ymax);
-
-            //float x1 = (float)xmin, y1 = x1, x2, y2;
-            //for(int i = 0; i < Interval; i++)
-            //{
-            //    x2 = x1 + xstep;
-            //    y2 = (float)(0.65 * Math.Sin(x2));
-
-            //    g.DrawLine(myPen, kx + x1, ky * y1 + pictureBox1.Height / 2, kx + x1, ky * y1 + pictureBox1.Height / 2);
-            //    x1 = x2;
-            //    y1 = y2;
-            //}
+           
         }
         private void Form4_Resize(object sender, EventArgs e)
         {
@@ -124,12 +101,7 @@ namespace Windows_Forms
                 int y1 = y - size / 2;
                 int y2 = y + size / 2;
 
-                if (R < 0)
-                    R = 30;
-                if (G < 0)
-                    G = 30;
-                if (B < 0)
-                    B = 30;
+
                 if (R > 255)
                     R = 255;
                 if (G > 255)
@@ -154,12 +126,7 @@ namespace Windows_Forms
             double x1, y1;
             if (N > 0)
             {
-                if (R < 0)
-                    R = 30;
-                if (G < 0)
-                    G = 30;
-                if (B < 0)
-                    B = 30;
+
                 if (R > 255)
                     R = 255;
                 if (G > 255)
@@ -178,17 +145,8 @@ namespace Windows_Forms
                 tree(x1, y1, a - Math.PI / 5, L * k, N - 1, R + 10, G + 30, B + 30);
             }
         }
-        //в отчете добавить дерево обдуваемое ветром
-        public static int MyMin(int a, int b)
-        {
-            if (a > b) return b;
-            return a;
-        }
-        public static int MyMinimum(int n, int[] arr)
-        {
-            if (n == 2) return MyMin(arr[0], arr[n - 1]);
-            return MyMin(arr[n - 1], MyMinimum(n - 1, arr));
-        }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {

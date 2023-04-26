@@ -88,7 +88,6 @@ namespace Windows_Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //startPt = nullPt;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string s = openFileDialog1.FileName;
