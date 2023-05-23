@@ -134,15 +134,15 @@ namespace Windows_Forms
                 if (B > 255)
                     B = 255;
 
-                Pen my_pen_temp = new Pen(Color.FromArgb(R, G, B), (float)(L/10));
+                Pen my_pen_temp = new Pen(Color.FromArgb(R, G, B));
 
                 x1 = x0 + L * Math.Cos(a);
                 y1 = y0 - L * Math.Sin(a);
                 g.DrawLine(my_pen_temp, (float)x0, (float)y0, (float)x1, (float)y1);
                 tree(x1, y1, a + Math.PI / 3, L * k, N - 1, R + 10, G + 30, B + 30);
                 tree(x1, y1, a + Math.PI / 7, L * k, N - 1, R + 10, G + 30, B + 30);
-                tree(x1, y1, a - Math.PI / 2, L * k, N - 1, R + 10, G + 30, B + 30);
-                tree(x1, y1, a - Math.PI / 5, L * k, N - 1, R + 10, G + 30, B + 30);
+                tree(x1, y1, a - Math.PI / 3, L * k, N - 1, R + 10, G + 30, B + 30);
+                tree(x1, y1, a - Math.PI / 7, L * k, N - 1, R + 10, G + 30, B + 30);
             }
         }
 
@@ -182,8 +182,8 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                fm1.textBox1.Text = error.Message + '\n';
-                fm1.textBox1.Text += error.StackTrace;
+                fm1.debugBox.Text = error.Message + '\n';
+                fm1.debugBox.Text += error.StackTrace;
             }
         }
     }

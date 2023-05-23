@@ -88,6 +88,12 @@
     <Compile Include="paint.Designer.cs">
       <DependentUpon>paint.cs</DependentUpon>
     </Compile>
+    <Compile Include="parser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="parser.Designer.cs">
+      <DependentUpon>parser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="paint.resx">
       <DependentUpon>paint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="parser.resx">
+      <DependentUpon>parser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -132,6 +141,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
+      <Project>{8e2adc70-e9a3-428d-917d-b500a61e7af4}</Project>
+      <Name>ClassLibrary1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
