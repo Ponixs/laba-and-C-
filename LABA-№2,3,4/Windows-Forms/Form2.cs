@@ -70,6 +70,7 @@ namespace Windows_Forms
         {
             try
             {
+ 
                 for (int i = 0; i < (dataGridView1.RowCount - 1); i++)
                 {
                     int intValue;
@@ -83,15 +84,18 @@ namespace Windows_Forms
                             i--;
                         }
                     }
+                    int b = 5 / intValue;
 
                 }
             }
             catch (Exception error)
             {
-                Fm1.textBox1.Text = error.Message + '\n';
-                Fm1.textBox1.Text = Convert.ToString(error.InnerException) + '\n';
-                Fm1.textBox1.Text = error.Source + '\n';
-                Fm1.textBox1.Text += error.StackTrace;
+                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
+                Fm1.debugBox.Text += error.Message + "\r\n";
+                Fm1.debugBox.Text += error.Source + "\r\n";
+                Fm1.debugBox.Text += "Трассировка стека:\r\n" + error.StackTrace + "\r\n";
+                Fm1.debugBox.Text += "______________________________________________________\r\n";
             }
            
         }
@@ -124,10 +128,12 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                Fm1.textBox1.Text = error.Message + '\n';
-                Fm1.textBox1.Text = Convert.ToString(error.InnerException) + '\n';
-                Fm1.textBox1.Text = error.Source + '\n';
-                Fm1.textBox1.Text += error.StackTrace;
+                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
+                Fm1.debugBox.Text += error.Message + "\r\n";
+                Fm1.debugBox.Text += error.Source + "\r\n";
+                Fm1.debugBox.Text += "Трассировка стека:\r\n" + error.StackTrace + "\r\n";
+                Fm1.debugBox.Text += "______________________________________________________\r\n";
             }
             
         }
@@ -151,10 +157,12 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                Fm1.textBox1.Text = error.Message + '\n';
-                Fm1.textBox1.Text = Convert.ToString(error.InnerException) + '\n';
-                Fm1.textBox1.Text = error.Source + '\n';
-                Fm1.textBox1.Text += error.StackTrace;
+                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
+                Fm1.debugBox.Text += error.Message + "\r\n";
+                Fm1.debugBox.Text += error.Source + "\r\n";
+                Fm1.debugBox.Text += "Трассировка стека:\r\n" + error.StackTrace + "\r\n";
+                Fm1.debugBox.Text += "______________________________________________________\r\n";
             }
            
         }

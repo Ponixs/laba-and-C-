@@ -40,15 +40,21 @@
             this.лР1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.лР2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.лР3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.редакторГрафИзобрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.фракталыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.лР4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.парсингToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.редакторГрафИзобрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.фракталыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.endD = new System.Windows.Forms.TextBox();
+            this.beginD = new System.Windows.Forms.TextBox();
+            this.debugBox = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +65,9 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.лабораторныеToolStripMenuItem});
+            this.лабораторныеToolStripMenuItem,
+            this.открытьToolStripMenuItem1,
+            this.парсингToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(2);
             this.menuStrip1.Name = "menuStrip1";
@@ -127,13 +135,13 @@
             // лР1ToolStripMenuItem
             // 
             this.лР1ToolStripMenuItem.Name = "лР1ToolStripMenuItem";
-            this.лР1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.лР1ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.лР1ToolStripMenuItem.Text = "ЛР-№1";
             // 
             // лР2ToolStripMenuItem
             // 
             this.лР2ToolStripMenuItem.Name = "лР2ToolStripMenuItem";
-            this.лР2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.лР2ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.лР2ToolStripMenuItem.Text = "ЛР-№2";
             this.лР2ToolStripMenuItem.Click += new System.EventHandler(this.лР2ToolStripMenuItem_Click);
             // 
@@ -143,15 +151,43 @@
             this.редакторГрафИзобрToolStripMenuItem,
             this.фракталыToolStripMenuItem});
             this.лР3ToolStripMenuItem.Name = "лР3ToolStripMenuItem";
-            this.лР3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.лР3ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.лР3ToolStripMenuItem.Text = "ЛР-№3";
             this.лР3ToolStripMenuItem.Click += new System.EventHandler(this.лР3ToolStripMenuItem_Click);
+            // 
+            // редакторГрафИзобрToolStripMenuItem
+            // 
+            this.редакторГрафИзобрToolStripMenuItem.Name = "редакторГрафИзобрToolStripMenuItem";
+            this.редакторГрафИзобрToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.редакторГрафИзобрToolStripMenuItem.Text = "редактор граф. изобр";
+            this.редакторГрафИзобрToolStripMenuItem.Click += new System.EventHandler(this.редакторГрафИзобрToolStripMenuItem_Click);
+            // 
+            // фракталыToolStripMenuItem
+            // 
+            this.фракталыToolStripMenuItem.Name = "фракталыToolStripMenuItem";
+            this.фракталыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.фракталыToolStripMenuItem.Text = "Фракталы";
+            this.фракталыToolStripMenuItem.Click += new System.EventHandler(this.фракталыToolStripMenuItem_Click);
             // 
             // лР4ToolStripMenuItem
             // 
             this.лР4ToolStripMenuItem.Name = "лР4ToolStripMenuItem";
-            this.лР4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.лР4ToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.лР4ToolStripMenuItem.Text = "ЛР-№4";
+            this.лР4ToolStripMenuItem.Click += new System.EventHandler(this.лР4ToolStripMenuItem_Click);
+            // 
+            // открытьToolStripMenuItem1
+            // 
+            this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(64, 20);
+            this.открытьToolStripMenuItem1.Text = "открыть";
+            // 
+            // парсингToolStripMenuItem
+            // 
+            this.парсингToolStripMenuItem.Name = "парсингToolStripMenuItem";
+            this.парсингToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.парсингToolStripMenuItem.Text = "Парсинг ";
+            this.парсингToolStripMenuItem.Click += new System.EventHandler(this.парсингToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -184,36 +220,64 @@
             // 
             this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // textBox1
+            // label2
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 24);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(800, 404);
-            this.textBox1.TabIndex = 4;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(683, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "До:";
             // 
-            // редакторГрафИзобрToolStripMenuItem
+            // label1
             // 
-            this.редакторГрафИзобрToolStripMenuItem.Name = "редакторГрафИзобрToolStripMenuItem";
-            this.редакторГрафИзобрToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.редакторГрафИзобрToolStripMenuItem.Text = "редактор граф. изобр";
-            this.редакторГрафИзобрToolStripMenuItem.Click += new System.EventHandler(this.редакторГрафИзобрToolStripMenuItem_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(560, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "От:";
             // 
-            // фракталыToolStripMenuItem
+            // endD
             // 
-            this.фракталыToolStripMenuItem.Name = "фракталыToolStripMenuItem";
-            this.фракталыToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.фракталыToolStripMenuItem.Text = "Фракталы";
-            this.фракталыToolStripMenuItem.Click += new System.EventHandler(this.фракталыToolStripMenuItem_Click);
+            this.endD.Location = new System.Drawing.Point(709, 4);
+            this.endD.Margin = new System.Windows.Forms.Padding(2);
+            this.endD.Name = "endD";
+            this.endD.Size = new System.Drawing.Size(80, 20);
+            this.endD.TabIndex = 9;
+            this.endD.Text = "30.12.2023";
+            // 
+            // beginD
+            // 
+            this.beginD.Location = new System.Drawing.Point(587, 4);
+            this.beginD.Margin = new System.Windows.Forms.Padding(2);
+            this.beginD.Name = "beginD";
+            this.beginD.Size = new System.Drawing.Size(80, 20);
+            this.beginD.TabIndex = 8;
+            this.beginD.Text = "16.06.2014";
+            // 
+            // debugBox
+            // 
+            this.debugBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.debugBox.Location = new System.Drawing.Point(0, 24);
+            this.debugBox.Margin = new System.Windows.Forms.Padding(2);
+            this.debugBox.Name = "debugBox";
+            this.debugBox.Size = new System.Drawing.Size(800, 404);
+            this.debugBox.TabIndex = 12;
+            this.debugBox.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.debugBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.endD);
+            this.Controls.Add(this.beginD);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -243,13 +307,19 @@
         private System.Windows.Forms.ToolStripSeparator закрытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        public System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem лР1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лР2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лР3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лР4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem редакторГрафИзобрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem фракталыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem парсингToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox endD;
+        private System.Windows.Forms.TextBox beginD;
+        public System.Windows.Forms.RichTextBox debugBox;
     }
 }
 
