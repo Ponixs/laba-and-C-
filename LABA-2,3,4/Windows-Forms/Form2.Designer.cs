@@ -119,6 +119,7 @@
             this.сортировкаToolStripMenuItem.Name = "сортировкаToolStripMenuItem";
             this.сортировкаToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.сортировкаToolStripMenuItem.Text = "Функции";
+            this.сортировкаToolStripMenuItem.Click += new System.EventHandler(this.сортировкаToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
