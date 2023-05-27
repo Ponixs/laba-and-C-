@@ -14,14 +14,14 @@ namespace Windows_Forms
         {
             InitializeComponent();
         }
-        public parser(Form1 f) 
+        public parser(Form1 f) // Инициализация
         {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
             mainForm = f;
         }
 
-        private void openButton_Click(object sender, EventArgs e) 
+        private void openButton_Click(object sender, EventArgs e) // кнопка для открытия файла
         {
             openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
@@ -31,14 +31,14 @@ namespace Windows_Forms
             richTextBox1.Text = filetext;
         }
 
-        private void SetSelectionStyle(int startIndex, int len, FontStyle style)
+        private void SetSelectionStyle(int startIndex, int len, FontStyle style) // Функция для выделения совпадений в тексте
         {
-            richTextBox1.Select(startIndex, len); 
+            richTextBox1.Select(startIndex, len); // Выделяем текст
 
             Font temp_font = richTextBox1.SelectionFont;
-            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | style); 
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | style); // Меняем стиль на подчеркнутый
 
-            switch ((int)comboBox1.SelectedIndex) 
+            switch ((int)comboBox1.SelectedIndex) // Для разных цветов у разных регулярок
             {
                 case 0:
                     richTextBox1.SelectionColor = System.Drawing.Color.Red;
@@ -54,35 +54,36 @@ namespace Windows_Forms
                     break;
             }
 
+            //richTextBox1.SelectionStart = richTextBox1.Text.Length;
         }
 
-        private void button1_Click(object sender, EventArgs e) 
+        private void button1_Click(object sender, EventArgs e) // Выполнение регулярки
         {
-            int save_cur = richTextBox1.SelectionStart; 
+            int save_cur = richTextBox1.SelectionStart; // Сохраняем позицию курсора в тексте
 
             string text_info = richTextBox1.Text;
             string reg = comboBox1.Text;
-            if (comboBox1.SelectedIndex == 2) 
+            if (comboBox1.SelectedIndex == 2) // Если выбрано доп. задание
                 reg = "(?<=[ ,\\n])m\\w+?n[^a-zA-Z]";
 
-            Reg1 Regular = new Reg1(reg);
+            Reg1 Regular = new Reg1(reg); // При помощи длл либы создаем класс для выполнения регулярки
 
-            MatchCollection matches = Regular.parse_main(text_info); 
+            MatchCollection matches = Regular.parse_main(text_info); // Выполняем функцию в классе длл либы
 
-            if (matches.Count > 0) 
+            if (matches.Count > 0) // Если найдены совпадения
             {
-                richTextBox1.Select(0, richTextBox1.TextLength); 
+                richTextBox1.Select(0, richTextBox1.TextLength); // Чистим текст от стилей
                 richTextBox1.SelectionColor = System.Drawing.Color.Black;
                 richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont, richTextBox1.SelectionFont.Style | FontStyle.Regular);
 
                 textBox1.Text = "Совпадения: \r\n";
-                foreach (Match match in matches) 
+                foreach (Match match in matches) // Выделяем каждое совпадение
                 {
                     textBox1.Text += match.Index + " позиция: \t" + match.Value + "\r\n";
                     SetSelectionStyle(match.Index, match.Length, FontStyle.Underline);
                 }
 
-                richTextBox1.SelectionStart = save_cur; 
+                richTextBox1.SelectionStart = save_cur; // Возвращаем мкурсор в начало
                 richTextBox1.Select(save_cur, 0);
 
             }
@@ -92,174 +93,9 @@ namespace Windows_Forms
             }
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e) 
+        private void richTextBox1_TextChanged(object sender, EventArgs e) // При вводе текста выполняем регулярку (2 пункт)
         {
             this.button1_Click(sender, e);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-
-                int save_cur = mainForm.debugBox.SelectionStart;
-
-
-                Reg1 Regular = new Reg1("[0-3][0-9].[0-1][0-9].[1-2][0-9][0-9][0-9]");
-                Reg1 RegularForm = new Reg1("[f,F]orm");
-
-                string IP = "  (192.168.77.129)";
-
-                mainForm.debugBox.Select(0, mainForm.debugBox.TextLength);
-                mainForm.debugBox.SelectionColor = System.Drawing.Color.Black;
-                mainForm.debugBox.SelectionFont = new Font(mainForm.debugBox.SelectionFont, mainForm.debugBox.SelectionFont.Style | FontStyle.Regular);
-
-                MatchCollection matches = Regular.parse_main(mainForm.debugBox.Text);
-                MatchCollection forms = RegularForm.parse_main(mainForm.debugBox.Text);
-                int shift = 0;
-                Match rebot = matches[0];
-                foreach (Match match in matches)
-                {
-                    if (SetSelectStyle(rebot.Index + shift, rebot.Length, FontStyle.Underline) == 1)
-                    {
-                        foreach (Match form in forms)
-                        {
-                            if (form.Index < match.Index && form.Index > rebot.Index)
-                            {
-                                mainForm.debugBox.Text = mainForm.debugBox.Text.Substring(0, form.Index + shift) + IP + mainForm.debugBox.Text.Substring(form.Index + shift);
-                                shift += IP.Length;
-                            }
-
-                        }
-
-                    }
-                    rebot = match;
-                }
-                if (SetSelectStyle(rebot.Index + shift, rebot.Length, FontStyle.Underline) == 1)
-                {
-                    foreach (Match form in forms)
-                    {
-                        if (form.Index > rebot.Index)
-                        {
-                            mainForm.debugBox.Text = mainForm.debugBox.Text.Substring(0, form.Index + shift) + IP + mainForm.debugBox.Text.Substring(form.Index + shift);
-                            shift += IP.Length;
-                        }
-
-                    }
-
-                }
-
-                shift = 0;
-                rebot = matches[0];
-                foreach (Match match in matches)
-                {
-
-                    if (SetSelectStyle(rebot.Index + shift, rebot.Length, FontStyle.Underline) == 1)
-                    {
-                        foreach (Match form in forms)
-                        {
-                            if (form.Index < match.Index && form.Index > rebot.Index)
-                            {
-
-                                mainForm.debugBox.Select(form.Index + 2 + shift, 16);
-                                shift += IP.Length;
-                                mainForm.debugBox.SelectionColor = System.Drawing.Color.Green;
-                            }
-
-                        }
-
-                    }
-                    rebot = match;
-                }
-                if (SetSelectStyle(rebot.Index + shift, rebot.Length, FontStyle.Underline) == 1)
-                {
-                    foreach (Match form in forms)
-                    {
-                        if (form.Index > rebot.Index)
-                        {
-                            mainForm.debugBox.Select(form.Index + 2 + shift, 16);
-                            shift += IP.Length;
-                            mainForm.debugBox.SelectionColor = System.Drawing.Color.Green;
-                        }
-
-                    }
-
-                }
-                matches = Regular.parse_main(mainForm.debugBox.Text);
-
-                foreach (Match match in matches)
-                {
-                    SetSelectStyle(match.Index, match.Length, FontStyle.Underline);
-                }
-
-
-
-
-                mainForm.debugBox.SelectionStart = save_cur;
-                mainForm.debugBox.Select(save_cur, 0);
-                mainForm.debugBox.SelectionColor = System.Drawing.Color.Black;
-                mainForm.debugBox.SelectionFont = new Font(mainForm.debugBox.SelectionFont, mainForm.debugBox.SelectionFont.Style | FontStyle.Regular);
-            }
-            catch (Exception error)
-            {
-                mainForm.debugBox.Text += mainForm.dateLabel + "" + mainForm.timeLabel + "\r\n";
-                mainForm.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
-                mainForm.debugBox.Text += error.Message + "\r\n";
-                mainForm.debugBox.Text += error.Source + "\r\n";
-                mainForm.debugBox.Text += "Трассировка стека:\r\n" + error.StackTrace + "\r\n";
-                mainForm.debugBox.Text += "______________________________________________________\r\n";
-            }
-        }
-        private int SetSelectStyle(int startIndex, int len, FontStyle style)
-        {
-            mainForm.debugBox.Select(startIndex, len);
-
-            Font temp_font = mainForm.debugBox.SelectionFont;
-
-            int a = 0;
-            string temp = mainForm.debugBox.Text.Substring(startIndex, 10);
-
-            string[] my_data = temp.Split('.');
-            string[] start = beginD.Text.Split('.');
-            string[] end = endD.Text.Split('.');
-
-            int my_y = int.Parse(my_data[2]);
-            int s_y = int.Parse(start[2]);
-            int e_y = int.Parse(end[2]);
-
-            int my_m = int.Parse(my_data[1]);
-            int s_m = int.Parse(start[1]);
-            int e_m = int.Parse(end[1]);
-
-            int my_d = int.Parse(my_data[0]);
-            int s_d = int.Parse(start[0]);
-            int e_d = int.Parse(end[0]);
-
-            if (my_y > s_y && my_y < e_y)
-                a = 1;
-
-            if (my_y == s_y || my_y == e_y)
-            {
-                if (my_m > s_m && my_m < e_m)
-                    a = 1;
-                if (my_m == s_m || my_m == e_m)
-                {
-                    if (my_d > s_d && my_d < e_d)
-                        a = 1;
-                }
-            }
-
-            switch (a)
-            {
-                case 0:
-                    mainForm.debugBox.SelectionColor = System.Drawing.Color.Red;
-                    break;
-                case 1:
-                    mainForm.debugBox.SelectionColor = System.Drawing.Color.Green;
-                    break;
-            }
-            return a;
         }
     }
 }
