@@ -1,6 +1,6 @@
 ﻿namespace Windows_Forms
 {
-    partial class parser
+    partial class asyncParser
     {
         /// <summary>
         /// Required designer variable.
@@ -168,6 +168,7 @@
             this.Text = "parser";
             this.ResumeLayout(false);
             this.PerformLayout();
+
 
         }
 

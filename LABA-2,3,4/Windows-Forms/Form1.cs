@@ -172,11 +172,22 @@ namespace Windows_Forms
             }
         }
 
-        
+        private void лРToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                asyncParser newForm = new asyncParser(this);
+                newForm.Show();
+            }
+            catch (Exception error)
+            {
+                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
 
-
-        
-
-        
+                debugBox.Text = error.Message + "\r\n";
+                debugBox.Text = error.InnerException.ToString() + "\r\n";
+                debugBox.Text = error.Source + "\r\n";
+                debugBox.Text += error.StackTrace;
+            }
+        }
     }
 }

@@ -1,20 +1,26 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClassLibrary1;
 using System.Text.RegularExpressions;
-using Windows_Forms;
 
 namespace Windows_Forms
 {
-    public partial class parser : Form
+    public partial class asyncParser : Form
     {
         Form1 mainForm;
-        public parser()
+        public asyncParser()
         {
             InitializeComponent();
         }
-        public parser(Form1 f)
+
+        public asyncParser(Form1 f)
         {
             InitializeComponent();
             comboBox1.SelectedIndex = 0;
@@ -56,7 +62,7 @@ namespace Windows_Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        async private void button1_Click(object sender, EventArgs e)
         {
             int save_cur = richTextBox1.SelectionStart;
 
@@ -65,9 +71,9 @@ namespace Windows_Forms
             if (comboBox1.SelectedIndex == 2)
                 reg = "(?<=[ ,\\n])t\\w+?a[^a-zA-Z]";
 
-            Reg1 Regular = new Reg1(reg);
+            RegularPromice Regular = new RegularPromice(reg);
 
-            MatchCollection matches = Regular.parse_main(text_info);
+            MatchCollection matches = await Regular.parse_main(text_info);
 
             if (matches.Count > 0)
             {
@@ -97,7 +103,7 @@ namespace Windows_Forms
             this.button1_Click(sender, e);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        async private void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -106,8 +112,8 @@ namespace Windows_Forms
                 int save_cur = mainForm.debugBox.SelectionStart;
 
 
-                Reg1 Regular = new Reg1("[0-3][0-9].[0-1][0-9].[1-2][0-9][0-9][0-9]");
-                Reg1 RegularForm = new Reg1("[f,F]orm");
+                RegularPromice Regular = new RegularPromice("[0-3][0-9].[0-1][0-9].[1-2][0-9][0-9][0-9]");
+                RegularPromice RegularForm = new RegularPromice("[f,F]orm");
 
                 string IP = "  (192.168.77.129)";
 
@@ -115,8 +121,8 @@ namespace Windows_Forms
                 mainForm.debugBox.SelectionColor = System.Drawing.Color.Black;
                 mainForm.debugBox.SelectionFont = new Font(mainForm.debugBox.SelectionFont, mainForm.debugBox.SelectionFont.Style | FontStyle.Regular);
 
-                MatchCollection matches = Regular.parse_main(mainForm.debugBox.Text);
-                MatchCollection forms = RegularForm.parse_main(mainForm.debugBox.Text);
+                MatchCollection matches = await Regular.parse_main(mainForm.debugBox.Text);
+                MatchCollection forms = await RegularForm.parse_main(mainForm.debugBox.Text);
                 int shift = 0;
                 Match rebot = matches[0];
                 foreach (Match match in matches)
@@ -186,7 +192,7 @@ namespace Windows_Forms
                     }
 
                 }
-                matches = Regular.parse_main(mainForm.debugBox.Text);
+                matches = await Regular.parse_main(mainForm.debugBox.Text);
 
                 foreach (Match match in matches)
                 {

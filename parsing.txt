@@ -1,0 +1,28 @@
+25.05.2022 г.19:32:30
+Метод: Void удалитьToolStripMenuItem_Click(System.Object, System.EventArgs)
+Введенные данные не соответствуют требованиям
+Windows-Forms
+Трассировка стека:
+   в Windows_Forms.Form2.удалитьToolStripMenuItem_Click(Object sender, EventArgs e) в C:\Users\vlad\source\repos\C#_and_Windows_Forms\LABA-2,3,4\Windows-Forms\Form2.cs:строка 78
+______________________________________________________
+26.09.2022г.19:32:40
+Метод: Void вставитьЧислоKToolStripMenuItem_Click(System.Object, System.EventArgs)
+Введенные данные не соответствуют требованиям
+Windows-Forms
+Трассировка стека:
+   в Windows_Forms.Form2.вставитьЧислоKToolStripMenuItem_Click(Object sender, EventArgs e) в C:\Users\vlad\source\repos\C#_and_Windows_Forms\LABA-2,3,4\Windows-Forms\Form2.cs:строка 113
+______________________________________________________
+26.09.2023г.19:32:57
+Метод: Void удалитьToolStripMenuItem_Click(System.Object, System.EventArgs)
+Попытка деления на нуль.
+Windows-Forms
+Трассировка стека:
+   в Windows_Forms.Form2.удалитьToolStripMenuItem_Click(Object sender, EventArgs e) в C:\Users\vlad\source\repos\C#_and_Windows_Forms\LABA-2,3,4\Windows-Forms\Form2.cs:строка 87
+______________________________________________________
+26.09.2022г.19:33:03
+Метод: Void удалитьToolStripMenuItem_Click(System.Object, System.EventArgs)
+Попытка деления на нуль.
+Windows-Forms
+Трассировка стека:
+   в Windows_Forms.Form2.удалитьToolStripMenuItem_Click(Object sender, EventArgs e) в C:\Users\vlad\source\repos\C#_and_Windows_Forms\LABA-2,3,4\Windows-Forms\Form2.cs:строка 87
+______________________________________________________
