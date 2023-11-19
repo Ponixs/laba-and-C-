@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PosgresLibrary
+namespace PGLib
 {
-    public class Connect
+    internal class Migrate
     {
-
-        
     }
 }
