@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS", "SIS.csproj", "{2242D9F9-8EC0-4521-B359-D9FAD8FEBDA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS", "SIS.csproj", "{2242D9F9-8EC0-4521-B359-D9FAD8FEBDA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibReg", "..\LibReg\LibReg.csproj", "{99BAA99C-A7F9-42E5-8848-43D4EE444C20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibReg", "..\LibReg\LibReg.csproj", "{99BAA99C-A7F9-42E5-8848-43D4EE444C20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGLib", "..\PGLib\PGLib.csproj", "{1454BE84-B35B-4D81-BABD-91B838287DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirLoggerPGLib", "..\PGLib\AirLoggerPGLib.csproj", "{1454BE84-B35B-4D81-BABD-91B838287DE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

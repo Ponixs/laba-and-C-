@@ -32,12 +32,13 @@
             menuStrip1 = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             открытьToolStripMenuItem = new ToolStripMenuItem();
+            логФайлToolStripMenuItem = new ToolStripMenuItem();
+            бДСЛогамиToolStripMenuItem = new ToolStripMenuItem();
             сохранитьToolStripMenuItem = new ToolStripMenuItem();
             создатьToolStripMenuItem = new ToolStripMenuItem();
             закрытьToolStripMenuItem = new ToolStripSeparator();
             закрытьToolStripMenuItem1 = new ToolStripMenuItem();
             лабораторныеToolStripMenuItem = new ToolStripMenuItem();
-            лР1ToolStripMenuItem = new ToolStripMenuItem();
             лР2ToolStripMenuItem = new ToolStripMenuItem();
             лР3ToolStripMenuItem = new ToolStripMenuItem();
             редакторГрафИзобрToolStripMenuItem = new ToolStripMenuItem();
@@ -78,55 +79,63 @@
             // 
             // открытьToolStripMenuItem
             // 
+            открытьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { логФайлToolStripMenuItem, бДСЛогамиToolStripMenuItem });
             открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            открытьToolStripMenuItem.Size = new Size(180, 22);
+            открытьToolStripMenuItem.Size = new Size(155, 22);
             открытьToolStripMenuItem.Text = "Открыть";
             открытьToolStripMenuItem.Click += открытьToolStripMenuItem_Click;
+            // 
+            // логФайлToolStripMenuItem
+            // 
+            логФайлToolStripMenuItem.Name = "логФайлToolStripMenuItem";
+            логФайлToolStripMenuItem.Size = new Size(142, 22);
+            логФайлToolStripMenuItem.Text = "Лог-файл";
+            логФайлToolStripMenuItem.Click += логФайлToolStripMenuItem_Click;
+            // 
+            // бДСЛогамиToolStripMenuItem
+            // 
+            бДСЛогамиToolStripMenuItem.Name = "бДСЛогамиToolStripMenuItem";
+            бДСЛогамиToolStripMenuItem.Size = new Size(142, 22);
+            бДСЛогамиToolStripMenuItem.Text = "БД с логами";
+            бДСЛогамиToolStripMenuItem.Click += бДСЛогамиToolStripMenuItem_Click;
             // 
             // сохранитьToolStripMenuItem
             // 
             сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            сохранитьToolStripMenuItem.Size = new Size(180, 22);
-            сохранитьToolStripMenuItem.Text = "Сохранить ";
+            сохранитьToolStripMenuItem.Size = new Size(155, 22);
+            сохранитьToolStripMenuItem.Text = "Сохранить лог";
             сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
             // 
             // создатьToolStripMenuItem
             // 
             создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            создатьToolStripMenuItem.Size = new Size(180, 22);
+            создатьToolStripMenuItem.Size = new Size(155, 22);
             создатьToolStripMenuItem.Text = "Создать";
             создатьToolStripMenuItem.Click += создатьToolStripMenuItem_Click;
             // 
             // закрытьToolStripMenuItem
             // 
             закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-            закрытьToolStripMenuItem.Size = new Size(177, 6);
+            закрытьToolStripMenuItem.Size = new Size(152, 6);
             // 
             // закрытьToolStripMenuItem1
             // 
             закрытьToolStripMenuItem1.Name = "закрытьToolStripMenuItem1";
-            закрытьToolStripMenuItem1.Size = new Size(180, 22);
+            закрытьToolStripMenuItem1.Size = new Size(155, 22);
             закрытьToolStripMenuItem1.Text = "Закрыть";
             закрытьToolStripMenuItem1.Click += закрытьToolStripMenuItem1_Click;
             // 
             // лабораторныеToolStripMenuItem
             // 
-            лабораторныеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { лР1ToolStripMenuItem, лР2ToolStripMenuItem, лР3ToolStripMenuItem, лР4ToolStripMenuItem, лРToolStripMenuItem });
+            лабораторныеToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { лР2ToolStripMenuItem, лР3ToolStripMenuItem, лР4ToolStripMenuItem, лРToolStripMenuItem });
             лабораторныеToolStripMenuItem.Name = "лабораторныеToolStripMenuItem";
             лабораторныеToolStripMenuItem.Size = new Size(101, 20);
             лабораторныеToolStripMenuItem.Text = "Лабораторные";
             // 
-            // лР1ToolStripMenuItem
-            // 
-            лР1ToolStripMenuItem.Name = "лР1ToolStripMenuItem";
-            лР1ToolStripMenuItem.Size = new Size(180, 22);
-            лР1ToolStripMenuItem.Text = "ЛР-№1";
-            лР1ToolStripMenuItem.Click += лР1ToolStripMenuItem_Click;
-            // 
             // лР2ToolStripMenuItem
             // 
             лР2ToolStripMenuItem.Name = "лР2ToolStripMenuItem";
-            лР2ToolStripMenuItem.Size = new Size(180, 22);
+            лР2ToolStripMenuItem.Size = new Size(113, 22);
             лР2ToolStripMenuItem.Text = "ЛР-№2";
             лР2ToolStripMenuItem.Click += лР2ToolStripMenuItem_Click;
             // 
@@ -134,7 +143,7 @@
             // 
             лР3ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { редакторГрафИзобрToolStripMenuItem, фракталыToolStripMenuItem });
             лР3ToolStripMenuItem.Name = "лР3ToolStripMenuItem";
-            лР3ToolStripMenuItem.Size = new Size(180, 22);
+            лР3ToolStripMenuItem.Size = new Size(113, 22);
             лР3ToolStripMenuItem.Text = "ЛР-№3";
             лР3ToolStripMenuItem.Click += лР3ToolStripMenuItem_Click;
             // 
@@ -155,14 +164,14 @@
             // лР4ToolStripMenuItem
             // 
             лР4ToolStripMenuItem.Name = "лР4ToolStripMenuItem";
-            лР4ToolStripMenuItem.Size = new Size(180, 22);
+            лР4ToolStripMenuItem.Size = new Size(113, 22);
             лР4ToolStripMenuItem.Text = "ЛР-№4";
             лР4ToolStripMenuItem.Click += лР4ToolStripMenuItem_Click;
             // 
             // лРToolStripMenuItem
             // 
             лРToolStripMenuItem.Name = "лРToolStripMenuItem";
-            лРToolStripMenuItem.Size = new Size(180, 22);
+            лРToolStripMenuItem.Size = new Size(113, 22);
             лРToolStripMenuItem.Text = "ЛР-№5";
             лРToolStripMenuItem.Click += лРToolStripMenuItem_Click;
             // 
@@ -237,15 +246,16 @@
         private ToolStripSeparator закрытьToolStripMenuItem;
         private ToolStripMenuItem закрытьToolStripMenuItem1;
         private SaveFileDialog saveFileDialog1;
-        private ToolStripMenuItem лР1ToolStripMenuItem;
         private ToolStripMenuItem лР2ToolStripMenuItem;
         private ToolStripMenuItem лР3ToolStripMenuItem;
         private ToolStripMenuItem лР4ToolStripMenuItem;
         private ToolStripMenuItem редакторГрафИзобрToolStripMenuItem;
         private ToolStripMenuItem фракталыToolStripMenuItem;
         private ToolStripMenuItem парсингToolStripMenuItem;
-        public RichTextBox debugBox;
         private ToolStripMenuItem лРToolStripMenuItem;
+        private ToolStripMenuItem логФайлToolStripMenuItem;
+        private ToolStripMenuItem бДСЛогамиToolStripMenuItem;
+        public RichTextBox debugBox;
     }
 }
 

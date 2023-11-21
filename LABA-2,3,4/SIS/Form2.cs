@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AirLoggerPGLib;
+using Microsoft.EntityFrameworkCore;
+using SIS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,11 +20,14 @@ namespace Windows_Forms
     {
         public int number;
         public Form1 Fm1;
+        private DbContextOptions<DataBase> options;
 
-        public Form2(Form1 fm)
+        public Form2(Form1 fm, DbContextOptions<DataBase> DBoptions)
         {
             InitializeComponent();
             Fm1 = fm;
+            options = DBoptions;
+
             for (int i = 0; i < 12; i++)
             {
                 dataGridView1.Rows.Add();
@@ -90,6 +96,11 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
+                using (DataBase db = new DataBase(options))
+                {
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), "DBWorkU Form");
+                }
+
                 Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";
@@ -128,6 +139,11 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
+                using (DataBase db = new DataBase(options))
+                {
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), "DBWorkU Form");
+                }
+
                 Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";
@@ -157,6 +173,11 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
+                using (DataBase db = new DataBase(options))
+                {
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), "DBWorkU Form");
+                }
+
                 Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";

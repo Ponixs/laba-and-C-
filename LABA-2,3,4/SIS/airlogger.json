@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=airlogger;Username=postgres;Password=3jLm!%2*3dSsih"
+  }
+}

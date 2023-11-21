@@ -1,17 +1,9 @@
 ﻿using ClassLibrary1;
 using SIS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
+using AirLoggerPGLib;
 using Timer = System.Windows.Forms.Timer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Windows_Forms
 {
@@ -20,6 +12,7 @@ namespace Windows_Forms
 
         public ToolStripLabel dateLabel;
         public ToolStripLabel timeLabel;
+        private DbContextOptions<DataBase> options;
         ToolStripLabel infoLabel;
         Timer timer;
 
@@ -35,6 +28,22 @@ namespace Windows_Forms
             Program.f1 = this;
 
             InitializeComponent();
+
+            var builder = new ConfigurationBuilder();
+            // установка пути к текущему каталогу
+            builder.SetBasePath(Directory.GetCurrentDirectory());
+            // получаем конфигурацию из файла
+            builder.AddJsonFile("airlogger.json");
+            // создаем конфигурацию
+            var config = builder.Build();
+            // получаем строку подключения
+            string connectionString = config.GetConnectionString("DefaultConnection");
+
+            var optionsBuilder = new DbContextOptionsBuilder<DataBase>();
+            options = optionsBuilder
+                .UseNpgsql(connectionString)
+                .Options;
+
 
             infoLabel = new ToolStripLabel();
             infoLabel.Text = "Дата и время: ";
@@ -82,22 +91,14 @@ namespace Windows_Forms
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
-
-            string fileName = openFileDialog1.FileName;
-
-            string fileText = System.IO.File.ReadAllText(fileName);
-            debugBox.Text = fileText;
-            MessageBox.Show("Файл открыт!");
+            
         }
 
         private void лР2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Form2 newForm = new Form2(this);
+                Form2 newForm = new Form2(this, options);
                 newForm.Show();
             }
             catch (Exception error)
@@ -192,9 +193,37 @@ namespace Windows_Forms
             }
         }
 
-        private void лР1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
+
+        private void бДСЛогамиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AirLoggerForm newForm = new AirLoggerForm(this, options);
+                newForm.Show();
+            }
+            catch (Exception error)
+            {
+                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+
+                debugBox.Text = error.Message + "\r\n";
+                debugBox.Text = $"{error.InnerException}\r\n";
+                debugBox.Text = error.Source + "\r\n";
+                debugBox.Text += error.StackTrace;
+            }
+        }
+
+        private void логФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+
+            string fileName = openFileDialog1.FileName;
+
+            string fileText = System.IO.File.ReadAllText(fileName);
+            debugBox.Text = fileText;
+            MessageBox.Show("Файл открыт!");
         }
     }
 }
