@@ -1,2 +1,0 @@
-Windows-Forms
-   в Windows_Forms.Form2.удалитьToolStripMenuItem_Click(Object sender, EventArgs e) в C:\Users\andre\source\repos\Ponixs\laboratory-work-on-OOP\LABA-№2\Windows-Forms\Form2.cs:строка 77
