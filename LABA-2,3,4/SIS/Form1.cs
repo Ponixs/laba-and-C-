@@ -4,6 +4,7 @@ using AirLoggerPGLib;
 using Timer = System.Windows.Forms.Timer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using SIS;
 
 namespace Windows_Forms
 {
@@ -12,7 +13,7 @@ namespace Windows_Forms
 
         public ToolStripLabel dateLabel;
         public ToolStripLabel timeLabel;
-        private DbContextOptions<DataBase> options;
+        public DbContextOptions<DataBase> options;
         ToolStripLabel infoLabel;
         Timer timer;
 
@@ -79,19 +80,13 @@ namespace Windows_Forms
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel) return;
 
-            string fileName = saveFileDialog1.FileName;
-
-            System.IO.File.WriteAllText(fileName, debugBox.Text);
-            MessageBox.Show("Файл сохранен!");
         }
 
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void лР2ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -199,7 +194,7 @@ namespace Windows_Forms
         {
             try
             {
-                AirLoggerForm newForm = new AirLoggerForm(this, options);
+                AirLoggerForm newForm = new AirLoggerForm(this);
                 newForm.Show();
             }
             catch (Exception error)
@@ -224,6 +219,35 @@ namespace Windows_Forms
             string fileText = System.IO.File.ReadAllText(fileName);
             debugBox.Text = fileText;
             MessageBox.Show("Файл открыт!");
+        }
+
+        private void вTxtФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+
+            string fileName = saveFileDialog1.FileName;
+
+            System.IO.File.WriteAllText(fileName, debugBox.Text);
+            MessageBox.Show("Файл сохранен!");
+        }
+
+        private void вDBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddInDB newForm = new AddInDB(this);
+                newForm.Show();
+            }
+            catch (Exception error)
+            {
+                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+
+                debugBox.Text = error.Message + "\r\n";
+                debugBox.Text = $"{error.InnerException}\r\n";
+                debugBox.Text = error.Source + "\r\n";
+                debugBox.Text += error.StackTrace;
+            }
         }
     }
 }

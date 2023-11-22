@@ -35,6 +35,8 @@
             логФайлToolStripMenuItem = new ToolStripMenuItem();
             бДСЛогамиToolStripMenuItem = new ToolStripMenuItem();
             сохранитьToolStripMenuItem = new ToolStripMenuItem();
+            вTxtФайлToolStripMenuItem = new ToolStripMenuItem();
+            вDBToolStripMenuItem = new ToolStripMenuItem();
             создатьToolStripMenuItem = new ToolStripMenuItem();
             закрытьToolStripMenuItem = new ToolStripSeparator();
             закрытьToolStripMenuItem1 = new ToolStripMenuItem();
@@ -81,47 +83,62 @@
             // 
             открытьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { логФайлToolStripMenuItem, бДСЛогамиToolStripMenuItem });
             открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            открытьToolStripMenuItem.Size = new Size(155, 22);
+            открытьToolStripMenuItem.Size = new Size(180, 22);
             открытьToolStripMenuItem.Text = "Открыть";
             открытьToolStripMenuItem.Click += открытьToolStripMenuItem_Click;
             // 
             // логФайлToolStripMenuItem
             // 
             логФайлToolStripMenuItem.Name = "логФайлToolStripMenuItem";
-            логФайлToolStripMenuItem.Size = new Size(142, 22);
+            логФайлToolStripMenuItem.Size = new Size(180, 22);
             логФайлToolStripMenuItem.Text = "Лог-файл";
             логФайлToolStripMenuItem.Click += логФайлToolStripMenuItem_Click;
             // 
             // бДСЛогамиToolStripMenuItem
             // 
             бДСЛогамиToolStripMenuItem.Name = "бДСЛогамиToolStripMenuItem";
-            бДСЛогамиToolStripMenuItem.Size = new Size(142, 22);
-            бДСЛогамиToolStripMenuItem.Text = "БД с логами";
+            бДСЛогамиToolStripMenuItem.Size = new Size(180, 22);
+            бДСЛогамиToolStripMenuItem.Text = "БД";
             бДСЛогамиToolStripMenuItem.Click += бДСЛогамиToolStripMenuItem_Click;
             // 
             // сохранитьToolStripMenuItem
             // 
+            сохранитьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { вTxtФайлToolStripMenuItem, вDBToolStripMenuItem });
             сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            сохранитьToolStripMenuItem.Size = new Size(155, 22);
+            сохранитьToolStripMenuItem.Size = new Size(180, 22);
             сохранитьToolStripMenuItem.Text = "Сохранить лог";
             сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
+            // 
+            // вTxtФайлToolStripMenuItem
+            // 
+            вTxtФайлToolStripMenuItem.Name = "вTxtФайлToolStripMenuItem";
+            вTxtФайлToolStripMenuItem.Size = new Size(130, 22);
+            вTxtФайлToolStripMenuItem.Text = "В txt файл";
+            вTxtФайлToolStripMenuItem.Click += вTxtФайлToolStripMenuItem_Click;
+            // 
+            // вDBToolStripMenuItem
+            // 
+            вDBToolStripMenuItem.Name = "вDBToolStripMenuItem";
+            вDBToolStripMenuItem.Size = new Size(130, 22);
+            вDBToolStripMenuItem.Text = "В DB";
+            вDBToolStripMenuItem.Click += вDBToolStripMenuItem_Click;
             // 
             // создатьToolStripMenuItem
             // 
             создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            создатьToolStripMenuItem.Size = new Size(155, 22);
+            создатьToolStripMenuItem.Size = new Size(180, 22);
             создатьToolStripMenuItem.Text = "Создать";
             создатьToolStripMenuItem.Click += создатьToolStripMenuItem_Click;
             // 
             // закрытьToolStripMenuItem
             // 
             закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-            закрытьToolStripMenuItem.Size = new Size(152, 6);
+            закрытьToolStripMenuItem.Size = new Size(177, 6);
             // 
             // закрытьToolStripMenuItem1
             // 
             закрытьToolStripMenuItem1.Name = "закрытьToolStripMenuItem1";
-            закрытьToolStripMenuItem1.Size = new Size(155, 22);
+            закрытьToolStripMenuItem1.Size = new Size(180, 22);
             закрытьToolStripMenuItem1.Text = "Закрыть";
             закрытьToolStripMenuItem1.Click += закрытьToolStripMenuItem1_Click;
             // 
@@ -256,6 +273,8 @@
         private ToolStripMenuItem логФайлToolStripMenuItem;
         private ToolStripMenuItem бДСЛогамиToolStripMenuItem;
         public RichTextBox debugBox;
+        private ToolStripMenuItem вTxtФайлToolStripMenuItem;
+        private ToolStripMenuItem вDBToolStripMenuItem;
     }
 }
 
