@@ -1,0 +1,48 @@
+﻿@model WebAspT.Models.UserException
+
+@{
+    ViewData["Title"] = "Создать";
+}
+
+<h1>Создать</h1>
+
+<h4>Исключения пользователя</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Message" class="control-label">сообщение</label>
+                <input asp-for="Message" class="form-control" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TargetSite" class="control-label">целевой объект</label>
+                <input asp-for="TargetSite" class="form-control" />
+                <span asp-validation-for="TargetSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="indexForm" class="control-label">номер формы</label>
+                <input asp-for="indexForm" class="form-control" />
+                <span asp-validation-for="indexForm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateTimeExc" class="control-label">дата и время исключения</label>
+                <input asp-for="dateTimeExc" class="form-control" />
+                <span asp-validation-for="dateTimeExc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

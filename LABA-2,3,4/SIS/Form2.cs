@@ -98,9 +98,9 @@ namespace Windows_Forms
             {
                 using (DataBase db = new DataBase(options))
                 {
-                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), GetType().FullName);
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel), GetType().FullName);
                 }
-                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += Fm1.dateLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";
                 Fm1.debugBox.Text += error.Source + "\r\n";
@@ -140,10 +140,10 @@ namespace Windows_Forms
             {
                 using (DataBase db = new DataBase(options))
                 {
-                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), GetType().FullName);
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel), GetType().FullName);
                 }
 
-                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += Fm1.dateLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";
                 Fm1.debugBox.Text += error.Source + "\r\n";
@@ -174,10 +174,10 @@ namespace Windows_Forms
             {
                 using (DataBase db = new DataBase(options))
                 {
-                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), GetType().FullName);
+                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel), GetType().FullName);
                 }
 
-                Fm1.debugBox.Text += Fm1.dateLabel + "" + Fm1.timeLabel + "\r\n";
+                Fm1.debugBox.Text += Fm1.dateLabel + "\r\n";
                 Fm1.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 Fm1.debugBox.Text += error.Message + "\r\n";
                 Fm1.debugBox.Text += error.Source + "\r\n";

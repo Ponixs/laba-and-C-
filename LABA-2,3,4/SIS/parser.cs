@@ -203,7 +203,7 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                mainForm.debugBox.Text += mainForm.dateLabel + "" + mainForm.timeLabel + "\r\n";
+                mainForm.debugBox.Text += mainForm.dateLabel + "";
                 mainForm.debugBox.Text += "Метод: " + error.TargetSite + "\r\n";
                 mainForm.debugBox.Text += error.Message + "\r\n";
                 mainForm.debugBox.Text += error.Source + "\r\n";

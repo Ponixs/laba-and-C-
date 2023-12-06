@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibReg", "..\LibReg\LibReg.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AirLoggerPGLib", "..\PGLib\AirLoggerPGLib.csproj", "{1454BE84-B35B-4D81-BABD-91B838287DE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAspT", "..\WebAspT\WebAspT.csproj", "{86FE341E-5BAA-480A-B498-E45838D132F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1454BE84-B35B-4D81-BABD-91B838287DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1454BE84-B35B-4D81-BABD-91B838287DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1454BE84-B35B-4D81-BABD-91B838287DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86FE341E-5BAA-480A-B498-E45838D132F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86FE341E-5BAA-480A-B498-E45838D132F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86FE341E-5BAA-480A-B498-E45838D132F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86FE341E-5BAA-480A-B498-E45838D132F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

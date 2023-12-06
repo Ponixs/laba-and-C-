@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebAspT.Models.ReportLabWork>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Отчеты о лабораторных работах</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              @*  @Html.DisplayNameFor(model => model.titleReportLW)*@
+              название отчета
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.dateReportLW)*@
+               дата отчета
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.versionReportLW)*@
+               версия отчета
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.id_Project)*@
+               номер проета
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.id_Student)*@
+                номер студента
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titleReportLW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateReportLW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.versionReportLW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_Project)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_Student)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_ReportLW">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.id_ReportLW">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_ReportLW">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

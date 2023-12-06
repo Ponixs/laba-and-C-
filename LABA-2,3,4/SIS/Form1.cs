@@ -12,15 +12,13 @@ namespace Windows_Forms
     {
 
         public ToolStripLabel dateLabel;
-        public ToolStripLabel timeLabel;
         public DbContextOptions<DataBase> options;
         ToolStripLabel infoLabel;
         Timer timer;
 
         void timer_tick(object sender, EventArgs e)
         {
-            dateLabel.Text = DateTime.Now.ToLongDateString();
-            timeLabel.Text = DateTime.Now.ToLongTimeString();
+            dateLabel.Text = DateTime.Now.ToString();
 
         }
 
@@ -49,11 +47,9 @@ namespace Windows_Forms
             infoLabel = new ToolStripLabel();
             infoLabel.Text = "Дата и время: ";
             dateLabel = new ToolStripLabel();
-            timeLabel = new ToolStripLabel();
 
             statusStrip1.Items.Add(infoLabel);
             statusStrip1.Items.Add(dateLabel);
-            statusStrip1.Items.Add(timeLabel);
 
             timer = new Timer() { Interval = 1000 };
             timer.Tick += timer_tick;
@@ -161,7 +157,7 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+                debugBox.Text = dateLabel + "\r\n";
 
                 debugBox.Text = error.Message + "\r\n";
                 debugBox.Text = error.InnerException.ToString() + "\r\n";
@@ -179,7 +175,7 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+                debugBox.Text = dateLabel + "\r\n";
 
                 debugBox.Text = error.Message + "\r\n";
                 debugBox.Text = error.InnerException.ToString() + "\r\n";
@@ -199,7 +195,7 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+                debugBox.Text = dateLabel + "\r\n";
 
                 debugBox.Text = error.Message + "\r\n";
                 debugBox.Text = $"{error.InnerException}\r\n";
@@ -241,7 +237,7 @@ namespace Windows_Forms
             }
             catch (Exception error)
             {
-                debugBox.Text = dateLabel + " " + timeLabel + "\r\n";
+                debugBox.Text = dateLabel + "\r\n";
 
                 debugBox.Text = error.Message + "\r\n";
                 debugBox.Text = $"{error.InnerException}\r\n";

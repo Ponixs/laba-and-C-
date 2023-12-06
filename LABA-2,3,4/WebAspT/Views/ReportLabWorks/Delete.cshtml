@@ -1,0 +1,56 @@
+﻿@model WebAspT.Models.ReportLabWork
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены, что хотите удалить это?</h3>
+<div>
+    <h4>Отчеты о лабораторных работах</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @* @Html.DisplayNameFor(model => model.titleReportLW)*@
+           название отчета
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.titleReportLW)
+        </dd>
+        <dt class = "col-sm-2">
+            @*@Html.DisplayNameFor(model => model.dateReportLW)*@
+            дата отчета
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateReportLW)
+        </dd>
+        <dt class = "col-sm-2">
+            @*@Html.DisplayNameFor(model => model.versionReportLW)*@
+            версия отчета
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.versionReportLW)
+        </dd>
+        <dt class = "col-sm-2">
+            @* @Html.DisplayNameFor(model => model.id_Project)*@
+           номер проекта
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_Project)
+        </dd>
+        <dt class = "col-sm-2">
+            @*@Html.DisplayNameFor(model => model.id_Student)*@
+            номер студента
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_Student)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id_ReportLW" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">К списку</a>
+    </form>
+</div>

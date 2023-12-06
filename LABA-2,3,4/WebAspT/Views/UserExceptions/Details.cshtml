@@ -1,0 +1,44 @@
+﻿@model WebAspT.Models.UserException
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Исключения пользователя</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.Message)*@
+            сообщение
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+        <dt class="col-sm-2">
+            @*@Html.DisplayNameFor(model => model.TargetSite)*@
+            целевой объект
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TargetSite)
+        </dd>
+        <dt class = "col-sm-2">
+            номер формыы
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.indexForm)
+        </dd>
+        <dt class = "col-sm-2">
+            дата и время исключения
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dateTimeExc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Изменить</a> |
+    <a asp-action="Index">К списку</a>
+</div>

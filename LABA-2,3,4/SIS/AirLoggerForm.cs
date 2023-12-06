@@ -128,10 +128,7 @@ namespace SIS
             }
             catch (DivideByZeroException error)
             {
-                using (DataBase db = new DataBase(options))
-                {
-                    db.AddLogInDB(Convert.ToString(error.Message), Convert.ToString(error.TargetSite), Convert.ToString(Program.f1.dateLabel) + ' ' + Convert.ToString(Program.f1.timeLabel), GetType().FullName);
-                }
+
             }
         }
 

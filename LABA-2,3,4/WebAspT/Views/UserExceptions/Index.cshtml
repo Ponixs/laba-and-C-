@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebAspT.Models.UserException>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Исключения пользователя</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*                @Html.DisplayNameFor(model => model.Message)*@
+                сообщение
+            </th>
+            <th>
+                @*                @Html.DisplayNameFor(model => model.TargetSite)*@
+                целевой объект
+            </th>
+            <th>
+                @*                @Html.DisplayNameFor(model => model.dateTimeExc)*@
+                дата и время исключения
+            </th>
+            <th>
+                @*                @Html.DisplayNameFor(model => model.indexForm)*@
+                номер формы
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetSite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateTimeExc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.indexForm)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

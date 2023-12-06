@@ -1,0 +1,53 @@
+﻿@model WebAspT.Models.ReportLabWork
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать</h1>
+
+<h4>Отчеты о лабораторных работах</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titleReportLW" class="control-label">название отчета</label>
+                <input asp-for="titleReportLW" class="form-control" />
+                <span asp-validation-for="titleReportLW" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dateReportLW" class="control-label">дата отчета</label>
+                <input asp-for="dateReportLW" class="form-control" />
+                <span asp-validation-for="dateReportLW" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="versionReportLW" class="control-label">версия отчета</label>
+                <input asp-for="versionReportLW" class="form-control" />
+                <span asp-validation-for="versionReportLW" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_Project" class="control-label">номер проекта</label>
+                <input asp-for="id_Project" class="form-control" />
+                <span asp-validation-for="id_Project" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_Student" class="control-label">номер студента</label>
+                <input asp-for="id_Student" class="form-control" />
+                <span asp-validation-for="id_Student" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">К списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
