@@ -4,7 +4,6 @@ using AirLoggerPGLib;
 using Timer = System.Windows.Forms.Timer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using SIS;
 
 namespace Windows_Forms
 {
